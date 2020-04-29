@@ -6,7 +6,7 @@ from resource.Average import Average
 
 app = Flask(__name__)
 CORS(app)
-cors = CORS(app, resources={r"/averages": {"origins": "http://localhost"}})
+cors = CORS(app, resources={r"/averages": {"origins": "*"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 api = Api(app)
 
