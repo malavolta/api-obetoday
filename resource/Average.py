@@ -11,4 +11,5 @@ class Average(Resource):
         yadio = YADIO_RATE_USD()
         averages = Averages(localbitcoin, yadio, dolartoday['dolartoday'], dolartoday['bitcoin_ref'])
         schema = AveragesSchema()
+
         return schema.dump(averages), 200
