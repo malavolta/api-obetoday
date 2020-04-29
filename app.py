@@ -1,18 +1,12 @@
-from flask import Flask, render_template
-import requests
-import json
+from flask import Flask
+from flask_restful import Resource, Api
 import os
-from apis import average
+from resource.Average import Average
 
-app = Flask(__name__, template_folder='templates')
+app = Flask(__name__)
+api = Api(app)
 
-
-@app.route('/')
-def homepage():
-    btc = average.BTC_IN_VES()
-    yadio = average.YADIO_RATE_USD()
-    dolartoday = average.DOLARTODAY_RATE()
-    return render_template('movies.html', dolarbtc=btc, yadio=yadio, dolartoday=dolartoday)
+api.add_resource(Average, "/averages")
 
 
 if __name__ == '__main__':
