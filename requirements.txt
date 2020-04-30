@@ -3,3 +3,4 @@ gunicorn
 requests
 marshmallow
 flask_restful
+flask_cors
